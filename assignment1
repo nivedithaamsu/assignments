@@ -1,0 +1,49 @@
+Imports System
+
+Module MyStudent
+    Class Student
+        Public name As String
+        Public roll As Integer
+        Public mark As Integer
+        Public Sub New(ByVal n As String)
+            Console.WriteLine("Object for student {0} is being created", n)
+        End Sub
+        Public Sub GetDetails(ByVal n As String, ByVal r As Integer, ByVal m As Integer)
+            name = n
+            roll = r
+            mark = m
+            Console.WriteLine("Name is {0}, Roll Number is {1}, Mark is {2}", name, roll, mark)
+        End Sub
+    End Class
+
+    Sub Main()
+        Dim choice As Integer, nn As String, rr As Integer, mm As Integer, j As Integer
+        Do
+            Console.WriteLine("1. Add")
+            Console.WriteLine("2. Update")
+            choice = Console.ReadLine()
+
+            If (choice = 1) Then
+                Console.WriteLine("Enter Name, Roll Number, and Mark of Student 1")
+                nn = Console.ReadLine()
+                rr = Console.ReadLine()
+                mm = Console.ReadLine()
+                Dim Student1 As Student = New Student(nn)
+                Student1.GetDetails(nn, rr, mm)
+            ElseIf (choice = 2) Then
+                Console.WriteLine("Enter Name, Roll Number, and Mark of Student 1")
+                nn = Console.ReadLine()
+                rr = Console.ReadLine()
+                mm = Console.ReadLine()
+                Dim Student1 As Student = New Student(nn)
+                Student1.GetDetails(nn, rr, mm)
+                Console.WriteLine("Enter roll number of the student to be updated:")
+                Dim roll1 As Integer = Console.ReadLine()
+                Student1.roll = roll1 + 1
+                Console.WriteLine("Name is {0}, Roll Number is {1}, Mark is {2}", Student1.name, Student1.roll, Student1.mark)
+            End If
+            Console.WriteLine("Do you want to continue? If yes, press 1; otherwise, press 0")
+            j = Console.ReadLine()
+        Loop While j = 1
+    End Sub
+End Module
